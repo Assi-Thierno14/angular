@@ -1,0 +1,44 @@
+<!-- <h1>salut world </h1>
+<p class="thi"> l'exposant de {{th}}   est {{th|exponential}} </p>
+<p  class="tha"> {{eleve[0].firstname |lowercase}}  {{eleve[0].lastname|uppercase}}  {{eleve[0].age}}   {{eleve[0].id}}  {{eleve[0].niveau}}  {{eleve[0].tel}}</p>
+<p class="the"> {{eleve[1].firstname}}  {{eleve[1].lastname}} {{eleve[1].age}} {{eleve[1].id}} {{eleve[1].niveau}}  {{eleve[1].tel}}</p> -->
+
+  <ul class="ul1">
+     <li  *ngFor = "let i of etudiant1" > 
+      <div class="tha"> {{i.firstname|uppercase}} {{i.lastname|uppercase}} {{i.age|number}}ans {{i.niveau}}  {{i.id}}  {{i.tel}} </div>
+    </li>
+</ul>
+<!-- <button class="btn-primary btn"
+ (mouseenter)="showImage = true" (mouseleave)="showImage = false">
+    Survolez-moi !
+  </button> -->
+  <!-- <img *ngIf="showImage"
+   src="https://vangogh.teespring.com/v3/image/so-OI-9L5KAWsqHQuv6gQwymSQ8/480/560.jpg" /> -->
+
+    <button (click) = ' personne_click(etudiant1[0])' >cliquez ici</button>
+
+    <ul class="nav nav-tabs">
+      <li [ngClass]="{ active: tab === 1 }" (click)="tab = 1"><a href="#">Home</a></li>
+      <li [ngClass]="{ active: tab === 2 }" (click)="tab = 2"><a href="#">Profile</a></li>
+      <li [ngClass]="{ active: tab === 3 }" (click)="tab = 3"><a href="#">Messages</a></li>
+    </ul>
+    
+    <div [ngSwitch]="tab">
+      <div *ngSwitchCase="1">Contenu pour le cas A</div>
+      <div *ngSwitchCase="2">Contenu pour le cas B</div>
+      <div *ngSwitchCase="3">Contenu pour le cas C</div>
+      <div *ngSwitchDefault>Contenu par défaut</div>
+    </div>
+    <input type="number" value="taper ici" (click)="OnpersnneClicked($event) ">
+    <!-- <div @switch="tab">
+      <div @case="1">Contenu pour le cas A</div>
+      <div @case="2">Contenu pour le cas B</div>
+      <div @case="3">Contenu pour le cas C</div>
+      <div @default>Contenu par défaut</div>
+    </div> -->
+    <!-- les formulaires  -->
+    <form (ngSubmit)="onSubmit(loginForm)" #loginForm ="ngForm">
+      <input type="text" name="username"   ngModel required>
+      <input type="password" name="password" ngModel required>
+      <button type="submit" [disabled]="!loginForm.valid">Se connecter</button>
+  </form>
